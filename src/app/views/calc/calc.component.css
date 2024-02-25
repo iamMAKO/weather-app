@@ -1,0 +1,10 @@
+.input-calc{
+    width: 40vw;
+    margin: 0 auto;
+}
+
+.calc-all {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

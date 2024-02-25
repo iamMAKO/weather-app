@@ -1,0 +1,31 @@
+<div class="input-calc card p-fluid">
+    <div class="calc-all">
+
+        <!-- TEMPERATURE INPUT -->
+        <div>
+            <label class="block font-bold mb-2" for="locale-temperature">Temperature</label>
+            <p-inputNumber  inputId="locale-temperature" mode="decimal" locale="de-DE" [minFractionDigits]="1" [suffix]="temporarySuffix" [(ngModel)]="temperatureValue"> </p-inputNumber>
+        </div>
+
+        <!-- UNIT CHANGE ON TEMPERATURE INPUT -->
+        <p-toggleButton [(ngModel)]="checked" (ngModelChange)="onChangeUnit()" onLabel="°F" offLabel="°C"></p-toggleButton>
+
+        <!-- RELATICE HUMIDITY INPUT -->
+        <div>
+            <label class="block font-bold mb-2" for="locale-humidity">Relative Humidity</label>
+            <p-inputNumber  inputId="locale-humidity" mode="decimal" locale="de-DE" [minFractionDigits]="2" suffix=" %" [(ngModel)]="humidityValue"> </p-inputNumber>
+        </div>
+
+        <!-- CALCULATE BUTTON -->
+        <p-button label="Submit" (click) = calculate()></p-button>
+
+        <!-- HEAT INDEX RESOULT IN CELSIUS -->
+        <p-inputNumber [(ngModel)]="heatIndexC" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" suffix=" °C" [disabled]="true"> </p-inputNumber>
+
+        <!-- HEAT INDEX RESOULT IN FARENHEIT -->
+        <p-inputNumber [(ngModel)]="heatIndexF" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" suffix=" °F" [disabled]="true"> </p-inputNumber>
+            
+        <!-- ERROR MESSAGE IF ENTERED WRONG VALUE -->
+        <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+    </div>
+</div>

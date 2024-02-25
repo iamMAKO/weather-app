@@ -1,0 +1,28 @@
+<div class="card">
+  <p-table 
+  [columns]="cols" 
+  [value]="transformedData" 
+  [tableStyle]="{ 'min-width': '50rem' }" 
+  styleClass="p-datatable-striped" 
+  [paginator]="true"
+  [rows]="24"
+  [resizableColumns]="true"
+  [showCurrentPageReport]="true"
+  [scrollable]="true" 
+  scrollHeight="80vh">
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns">
+                  {{ col.header }}
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+              <td *ngFor="let col of columns">
+                  {{ rowData[col.field] }}
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
